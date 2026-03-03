@@ -1,48 +1,49 @@
 
 # nanoGPT
 
-![nanoGPT](assets/nanogpt.jpg)
+原仓库nanoGPT的[README地址](https://github.com/karpathy/nanoGPT#)
 
 
 ---
 
-**Update Nov 2025** nanoGPT has a new and improved cousin called [nanochat](https://github.com/karpathy/nanochat). It is very likely you meant to use/find nanochat instead. nanoGPT (this repo) is now very old and deprecated but I will leave it up for posterity.
+nanoGPT是一种简单快速的仓库，用于训练/微调中等大小的GPT模型。它是 minGPT 的重写，优先考虑“牙齿”而不是“教育”。 该文件仍在积极开发中，但目前该文件在OpenWebText上重现了GPT-2（124M），在单个8XA100 40GB节点上运行，训练约4天。该代码库旨在成为一个简单、易于理解和修改的GPT实现，适合教育和研究目的。它支持训练从零开始的GPT模型，也支持使用预训练的GPT-2模型进行微调。
 
 ---
 
-The simplest, fastest repository for training/finetuning medium-sized GPTs. It is a rewrite of [minGPT](https://github.com/karpathy/minGPT) that prioritizes teeth over education. Still under active development, but currently the file `train.py` reproduces GPT-2 (124M) on OpenWebText, running on a single 8XA100 40GB node in about 4 days of training. The code itself is plain and readable: `train.py` is a ~300-line boilerplate training loop and `model.py` a ~300-line GPT model definition, which can optionally load the GPT-2 weights from OpenAI. That's it.
-
-![repro124m](assets/gpt2_124M_loss.png)
-
-Because the code is so simple, it is very easy to hack to your needs, train new models from scratch, or finetune pretrained checkpoints (e.g. biggest one currently available as a starting point would be the GPT-2 1.3B model from OpenAI).
-
-## install
+## 安装
 
 ```
 pip install torch numpy transformers datasets tiktoken wandb tqdm
 ```
 
-Dependencies:
+依赖项:
 
 - [pytorch](https://pytorch.org) <3
+> PyTorch 是一个流行的深度学习框架，提供了强大的工具和库来构建和训练神经网络。它支持 GPU 加速，并且具有动态计算图功能，使得模型开发更加灵活和高效。
+> **注意**：如果你在安装 PyTorch 时遇到困难，请确保你选择了正确的 CUDA 版本（如果你有 NVIDIA GPU）或选择适合你的系统的版本。对于 Apple Silicon Macbook 用户，建议安装 PyTorch 的最新版本，并使用 `--device=mps` 来利用 Metal Performance Shaders 加速训练。
 - [numpy](https://numpy.org/install/) <3
+> NumPy 是一个用于科学计算的库，提供了高效的多维数组对象和各种数学函数。它是许多深度学习库（包括 PyTorch）的基础，常用于数据处理和数值计算。
 -  `transformers` for huggingface transformers <3 (to load GPT-2 checkpoints)
+> Hugging Face Transformers 是一个流行的库，提供了预训练的语言模型（如 GPT-2）和工具来加载和使用这些模型。它使得在 nanoGPT 中使用预训练的 GPT-2 模型进行微调变得非常简单。
 -  `datasets` for huggingface datasets <3 (if you want to download + preprocess OpenWebText)
+> Hugging Face Datasets 是一个数据库，提供了大量预处理好的数据集，适用于自然语言处理任务。它使得下载和预处理数据（如 OpenWebText）变得非常方便，特别是在训练语言模型时。
 -  `tiktoken` for OpenAI's fast BPE code <3
+> Tiktoken 是 OpenAI 的一个快速 BPE（Byte Pair Encoding）编码器，用于将文本转换为 GPT-2 模型可以理解的 token ID。它在处理大规模文本数据时非常高效，特别适用于训练和微调 GPT 模型。
 -  `wandb` for optional logging <3
+> Weights & Biases (wandb) 是一个流行的工具，用于跟踪和可视化机器学习实验。它提供了一个易于使用的界面来监控训练过程中的指标、模型性能和超参数调整，使得实验管理更加高效。
 -  `tqdm` for progress bars <3
+> Tqdm 是一个 Python 库，用于在长时间运行的循环中显示进度条。它使得监控训练过程中的进度变得更加直观和方便，特别是在训练大型模型时。
 
-## quick start
+## 快速开始
 
-If you are not a deep learning professional and you just want to feel the magic and get your feet wet, the fastest way to get started is to train a character-level GPT on the works of Shakespeare. First, we download it as a single (1MB) file and turn it from raw text into one large stream of integers:
+如果你不是深度学习专业人士，只是想感受一下魔法并入门，那么最快的方式是在莎士比亚的作品上训练一个字符级的 GPT。首先，我们将其作为一个单一的（1MB）文件[下载](data/shakespeare_char/readme.md)，并将其从原始文本转换为一个大的整数流：
 
 ```sh
 python data/shakespeare_char/prepare.py
 ```
+这将创建一个 `train.bin` 和 `val.bin` 在那个数据目录中。现在是时候训练你的 GPT 了。它的大小很大程度上取决于你系统的计算资源：
 
-This creates a `train.bin` and `val.bin` in that data directory. Now it is time to train your GPT. The size of it very much depends on the computational resources of your system:
-
-**I have a GPU**. Great, we can quickly train a baby GPT with the settings provided in the [config/train_shakespeare_char.py](config/train_shakespeare_char.py) config file:
+**我的电脑有GPU**.很棒，接下来我们可以使用[config/train_shakespeare_char.py](config/train_shakespeare_char.py)配置文件中提供的设置快速训练一个小型GPT：
 
 ```sh
 python train.py config/train_shakespeare_char.py
