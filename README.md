@@ -48,7 +48,7 @@ python data/shakespeare_char/prepare.py
 ```sh
 python train.py config/train_shakespeare_char.py
 ```
-
+如果你查看内部，你会发现我们正在训练一个由6层Transformer组成的模型，每个层有6个头，特征维度为384，上下文大小为256字符。在一个A100 GPU上，这将需要大约3分钟的训练时间。并且在验证集上的损失为1.4697。基于这个配置，模型的检查点将被写入`--out_dir`所指定的 `out-shakespeare-char` 目录里。所以，一当训练完成时，我们就可以使用这个最好的模型从这个目录来生成样本：
 If you peek inside it, you'll see that we're training a GPT with a context size of up to 256 characters, 384 feature channels, and it is a 6-layer Transformer with 6 heads in each layer. On one A100 GPU this training run takes about 3 minutes and the best validation loss is 1.4697. Based on the configuration, the model checkpoints are being written into the `--out_dir` directory `out-shakespeare-char`. So once the training finishes we can sample from the best model by pointing the sampling script at this directory:
 
 ```sh
