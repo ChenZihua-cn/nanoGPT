@@ -1,0 +1,109 @@
+tokens per iteration will be: 512
+found vocab_size = 65 (inside data/shakespeare_char/meta.pkl)
+Initializing a new model from scratch
+number of parameters: 10.65M
+/data/data/com.termux/files/home/dev/python/nanoGPT/train.py:218: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
+num decayed parameter tensors: 26, with 10,690,944 parameters
+num non-decayed parameter tensors: 13, with 4,992 parameters
+using fused AdamW: False
+step 0: train loss 4.2367, val loss 4.2475
+iter 0: loss 4.2709, time 10268.08ms, mfu -100.00%
+iter 5: loss 4.2082, time 1431.27ms, mfu 0.01%
+iter 10: loss 4.1039, time 1434.03ms, mfu 0.01%
+iter 15: loss 3.9898, time 1431.89ms, mfu 0.01%
+iter 20: loss 3.8711, time 1441.24ms, mfu 0.01%
+iter 25: loss 3.8267, time 1435.33ms, mfu 0.01%
+iter 30: loss 3.7244, time 1435.08ms, mfu 0.01%
+iter 35: loss 3.6396, time 1438.47ms, mfu 0.01%
+iter 40: loss 3.6894, time 1458.02ms, mfu 0.01%
+iter 45: loss 3.5330, time 1437.46ms, mfu 0.01%
+iter 50: loss 3.5773, time 1436.65ms, mfu 0.01%
+iter 55: loss 3.6354, time 1436.54ms, mfu 0.01%
+iter 60: loss 3.4961, time 1433.70ms, mfu 0.01%
+iter 65: loss 3.4278, time 1434.64ms, mfu 0.01%
+iter 70: loss 3.4799, time 1435.37ms, mfu 0.01%
+iter 75: loss 3.5415, time 1437.29ms, mfu 0.01%
+iter 80: loss 3.5290, time 1432.64ms, mfu 0.01%
+iter 85: loss 3.4709, time 1435.62ms, mfu 0.01%
+iter 90: loss 3.4036, time 1434.47ms, mfu 0.01%
+iter 95: loss 3.4026, time 1434.37ms, mfu 0.01%
+step 100: train loss 3.4633, val loss 3.4987
+saving checkpoint to out-kirin
+iter 100: loss 3.4880, time 10538.35ms, mfu 0.01%
+iter 105: loss 3.4622, time 1444.41ms, mfu 0.01%
+iter 110: loss 3.4015, time 1442.45ms, mfu 0.01%
+iter 115: loss 3.5506, time 1442.93ms, mfu 0.01%
+iter 120: loss 3.4751, time 1444.10ms, mfu 0.01%
+iter 125: loss 3.5059, time 1442.80ms, mfu 0.01%
+iter 130: loss 3.5109, time 1443.61ms, mfu 0.01%
+iter 135: loss 3.4611, time 1442.67ms, mfu 0.01%
+iter 140: loss 3.4713, time 1442.54ms, mfu 0.01%
+iter 145: loss 3.4855, time 1446.61ms, mfu 0.01%
+iter 150: loss 3.5173, time 1442.21ms, mfu 0.01%
+iter 155: loss 3.4999, time 1443.42ms, mfu 0.01%
+iter 160: loss 3.4672, time 1442.23ms, mfu 0.01%
+iter 165: loss 3.5568, time 1442.23ms, mfu 0.01%
+iter 170: loss 3.4638, time 1443.26ms, mfu 0.01%
+iter 175: loss 3.3959, time 1440.97ms, mfu 0.01%
+iter 180: loss 3.4745, time 1441.23ms, mfu 0.01%
+iter 185: loss 3.5144, time 1441.63ms, mfu 0.01%
+iter 190: loss 3.4909, time 1442.30ms, mfu 0.01%
+iter 195: loss 3.3028, time 1443.25ms, mfu 0.01%
+step 200: train loss 3.4830, val loss 3.4427
+saving checkpoint to out-kirin
+iter 200: loss 3.4232, time 10552.67ms, mfu 0.01%
+iter 205: loss 3.3814, time 1446.52ms, mfu 0.01%
+iter 210: loss 3.5314, time 1448.15ms, mfu 0.01%
+iter 215: loss 3.3875, time 1447.56ms, mfu 0.01%
+iter 220: loss 3.3210, time 1445.62ms, mfu 0.01%
+iter 225: loss 3.4468, time 1447.47ms, mfu 0.01%
+iter 230: loss 3.3262, time 1446.35ms, mfu 0.01%
+iter 235: loss 3.4343, time 1445.45ms, mfu 0.01%
+iter 240: loss 3.4053, time 1444.79ms, mfu 0.01%
+iter 245: loss 3.4412, time 1447.40ms, mfu 0.01%
+iter 250: loss 3.4482, time 1444.61ms, mfu 0.01%
+iter 255: loss 3.3898, time 1447.84ms, mfu 0.01%
+iter 260: loss 3.3684, time 1448.39ms, mfu 0.01%
+iter 265: loss 3.3812, time 1445.55ms, mfu 0.01%
+iter 270: loss 3.5234, time 1444.91ms, mfu 0.01%
+iter 275: loss 3.3498, time 1447.06ms, mfu 0.01%
+iter 280: loss 3.4342, time 1448.13ms, mfu 0.01%
+iter 285: loss 3.3985, time 1445.36ms, mfu 0.01%
+iter 290: loss 3.4206, time 1445.10ms, mfu 0.01%
+iter 295: loss 3.3392, time 1452.11ms, mfu 0.01%
+step 300: train loss 3.4028, val loss 3.4254
+saving checkpoint to out-kirin
+iter 300: loss 3.4070, time 10543.62ms, mfu 0.01%
+iter 305: loss 3.4092, time 1446.85ms, mfu 0.01%
+iter 310: loss 3.4062, time 1447.83ms, mfu 0.01%
+iter 315: loss 3.4993, time 1447.35ms, mfu 0.01%
+iter 320: loss 3.4943, time 1444.39ms, mfu 0.01%
+iter 325: loss 3.3673, time 1447.03ms, mfu 0.01%
+iter 330: loss 3.3118, time 1447.86ms, mfu 0.01%
+iter 335: loss 3.3245, time 1446.43ms, mfu 0.01%
+iter 340: loss 3.3704, time 1446.62ms, mfu 0.01%
+iter 345: loss 3.3513, time 1447.16ms, mfu 0.01%
+iter 350: loss 3.2723, time 1446.40ms, mfu 0.01%
+iter 355: loss 3.3970, time 1446.01ms, mfu 0.01%
+iter 360: loss 3.3361, time 1447.76ms, mfu 0.01%
+iter 365: loss 3.5421, time 1447.97ms, mfu 0.01%
+iter 370: loss 3.4169, time 1446.73ms, mfu 0.01%
+iter 375: loss 3.5716, time 1451.65ms, mfu 0.01%
+iter 380: loss 3.3424, time 1447.62ms, mfu 0.01%
+iter 385: loss 3.3494, time 1446.03ms, mfu 0.01%
+iter 390: loss 3.4328, time 1447.45ms, mfu 0.01%
+iter 395: loss 3.5382, time 1447.95ms, mfu 0.01%
+step 400: train loss 3.3296, val loss 3.3687
+saving checkpoint to out-kirin
+iter 400: loss 3.3025, time 10555.02ms, mfu 0.01%
+iter 405: loss 3.2481, time 1452.75ms, mfu 0.01%
+iter 410: loss 3.3197, time 1445.70ms, mfu 0.01%
+iter 415: loss 3.2452, time 1446.25ms, mfu 0.01%
+iter 420: loss 3.5023, time 1445.08ms, mfu 0.01%
+iter 425: loss nan, time 1440.31ms, mfu 0.01%
+iter 430: loss nan, time 1439.49ms, mfu 0.01%
+iter 435: loss nan, time 1440.00ms, mfu 0.01%
+iter 440: loss nan, time 1439.46ms, mfu 0.01%
+iter 445: loss nan, time 1437.82ms, mfu 0.01%
+iter 450: loss nan, time 1440.08ms, mfu 0.01%
